@@ -13,13 +13,15 @@ const List = () => {
   const [destination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
-  const [options] = useState(location.state.options); // إزالة setOptions
+  const [options] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, reFetch } = useFetch(
+  const { data, loading, error, reFetch } = useFetch(
     `/hotels?city=${destination}&min=${min || 0 }&max=${max || 999}`
   );
+
+  console.log(data); // التحقق من البيانات المستلمة
 
   const handleClick = () => {
     reFetch();
@@ -108,11 +110,17 @@ const List = () => {
           <div className="listResult">
             {loading ? (
               "loading"
+            ) : error ? (
+              "Error occurred"
             ) : (
               <>
-                {data.map((item) => (
-                  <SearchItem item={item} key={item._id} />
-                ))}
+                {Array.isArray(data) ? (
+                  data.map((item) => (
+                    <SearchItem item={item} key={item._id} />
+                  ))
+                ) : (
+                  "No data available"
+                )}
               </>
             )}
           </div>
