@@ -10,7 +10,7 @@ const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://hotel-api-fhad.ddnsfree.com/api${url}`); // مسار مطلق
+        const res = await axios.get(`https://hotel-api-fhad.ddnsfree.com/api${url}`); // استخدم HTTPS
         setData(res.data);
       } catch (err) {
         setError(err);
@@ -23,7 +23,7 @@ const useFetch = (url) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://hotel-api-fhad.ddnsfree.com/api${url}`); // مسار مطلق
+      const res = await axios.get(`https://hotel-api-fhad.ddnsfree.com/api${url}`); // استخدم HTTPS
       setData(res.data);
     } catch (err) {
       setError(err);
