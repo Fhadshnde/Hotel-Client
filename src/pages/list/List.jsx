@@ -22,6 +22,7 @@ const List = () => {
   );
 
   console.log("Data received:", data); 
+  console.log("Destination:", destination);
 
   const handleClick = () => {
     reFetch();
