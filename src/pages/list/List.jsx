@@ -18,10 +18,10 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `/hotels?city=${destination}&min=${min || 0 }&max=${max || 999}`
+    `/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
-  console.log(data); // التحقق من البيانات المستلمة
+  console.log("Data received:", data); 
 
   const handleClick = () => {
     reFetch();
@@ -109,12 +109,12 @@ const List = () => {
           </div>
           <div className="listResult">
             {loading ? (
-              "loading"
+              "Loading"
             ) : error ? (
-              "Error occurred"
+              `Error: ${error.message}`
             ) : (
               <>
-                {Array.isArray(data) ? (
+                {Array.isArray(data) && data.length > 0 ? (
                   data.map((item) => (
                     <SearchItem item={item} key={item._id} />
                   ))
