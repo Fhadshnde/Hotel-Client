@@ -52,7 +52,7 @@
   font-weight: 500;
 }
 
-.rSelectRooms{
+.rSelectRooms {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -60,7 +60,7 @@
   color: gray;
 }
 
-.room{
+.room {
   display: flex;
   flex-direction: column;
 }
@@ -75,4 +75,30 @@
   border-radius: 5px;
   width: 100%;
   margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .reserve {
+    padding: 10px;
+  }
+
+  .rContainer {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .rItem {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .rSelectRooms {
+    flex-direction: column;
+    font-size: 12px;
+  }
+
+  .rButton {
+    width: 100%;
+  }
 }

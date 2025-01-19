@@ -1,7 +1,17 @@
 import { createContext, useEffect, useReducer } from "react";
+import axios from "axios";
+
+const getUserFromLocalStorage = () => {
+  const user = localStorage.getItem("user");
+  try {
+    return JSON.parse(user);
+  } catch (e) {
+    return null;
+  }
+};
 
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: getUserFromLocalStorage(),
   loading: false,
   error: null,
 };
@@ -34,6 +44,24 @@ const AuthReducer = (state, action) => {
         loading: false,
         error: null,
       };
+    case "REGISTER_START":
+      return {
+        user: null,
+        loading: true,
+        error: null,
+      };
+    case "REGISTER_SUCCESS":
+      return {
+        user: action.payload,
+        loading: false,
+        error: null,
+      };
+    case "REGISTER_FAILURE":
+      return {
+        user: null,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
@@ -46,6 +74,16 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
 
+  const register = async (userDetails) => {
+    dispatch({ type: "REGISTER_START" });
+    try {
+      const res = await axios.post("/auth/register", userDetails);
+      dispatch({ type: "REGISTER_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "REGISTER_FAILURE", payload: err });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -53,6 +91,7 @@ export const AuthContextProvider = ({ children }) => {
         loading: state.loading,
         error: state.error,
         dispatch,
+        register, 
       }}
     >
       {children}
