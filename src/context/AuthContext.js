@@ -1,3 +1,5 @@
+// AuthContext.js
+
 import { createContext, useEffect, useReducer } from "react";
 import axios from "axios";
 
@@ -77,7 +79,7 @@ export const AuthContextProvider = ({ children }) => {
   const register = async (userDetails) => {
     dispatch({ type: "REGISTER_START" });
     try {
-      const res = await axios.post("/auth/register", userDetails);
+      const res = await axios.post("https://hotel-api-fhad.ddnsfree.com/api/auth/register", userDetails);
       dispatch({ type: "REGISTER_SUCCESS", payload: res.data });
     } catch (err) {
       dispatch({ type: "REGISTER_FAILURE", payload: err });

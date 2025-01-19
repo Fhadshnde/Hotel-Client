@@ -15,7 +15,6 @@ const Register = () => {
   });
 
   const { loading, error, dispatch } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,16 +25,17 @@ const Register = () => {
     e.preventDefault();
     dispatch({ type: "REGISTER_START" });
     try {
-      const res = await axios.post("/auth/register", credentials);
+      const res = await axios.post("https://hotel-api-fhad.ddnsfree.com/api/auth/register", credentials);
       dispatch({ type: "REGISTER_SUCCESS", payload: res.data.details });
-      navigate("/");
+      navigate("/login");
     } catch (err) {
-      dispatch({ type: "REGISTER_FAILURE", payload: err.response.data });
+      console.error(err); // تسجيل الخطأ في وحدة التحكم
+      dispatch({ type: "REGISTER_FAILURE", payload: err.response?.data || "Something went wrong!" });
     }
   };
 
   return (
-    <div className="register" >
+    <div className="register">
       <div className="rContainer">
         <input
           type="text"
