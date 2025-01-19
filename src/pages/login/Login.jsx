@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("https://teal-cannoli-399069.netlify.app/auth/login", credentials);
+      const res = await axios.post("https://hotel-api-fhad.ddnsfree.com/api/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/");
     } catch (err) {
