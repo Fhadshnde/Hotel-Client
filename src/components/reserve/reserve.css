@@ -12,28 +12,28 @@
 
 .rContainer {
   background-color: white;
-  padding: 20px;
+  padding: 2vh;
   position: relative;
 }
 
 .rClose {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1vh;
+  right: 1vw;
   cursor: pointer;
 }
 
 .rItem {
   display: flex;
   align-items: center;
-  gap: 50px;
-  padding: 20px;
+  gap: 5vw;
+  padding: 2vh;
 }
 
 .rInfo {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5vh;
 }
 
 .rTitle {
@@ -45,7 +45,7 @@
 }
 
 .rMax {
-  font-size: 12px;
+  font-size: 1.2vw;
 }
 
 .rPrice {
@@ -55,8 +55,8 @@
 .rSelectRooms {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  font-size: 8px;
+  gap: 0.5vh;
+  font-size: 0.8vw;
   color: gray;
 }
 
@@ -67,38 +67,64 @@
 
 .rButton {
   border: none;
-  padding: 10px 20px;
+  padding: 1vh 2vw;
   background-color: #0071c2;
   color: white;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 2vh;
+}
+
+@media (max-width: 1024px) {
+  .rContainer {
+    padding: 3vh;
+  }
+
+  .rItem {
+    gap: 4vw;
+  }
+
+  .rSelectRooms {
+    gap: 0.75vh;
+  }
+
+  .rButton {
+    padding: 1.25vh 2.5vw;
+  }
 }
 
 @media (max-width: 768px) {
-  .reserve {
-    padding: 10px;
-  }
-
   .rContainer {
-    width: 90%;
-    padding: 15px;
+    padding: 4vh;
   }
 
   .rItem {
     flex-direction: column;
-    gap: 20px;
-    padding: 15px;
+    align-items: center;
+    gap: 2vh;
   }
 
   .rSelectRooms {
-    flex-direction: column;
-    font-size: 12px;
+    gap: 1vh;
   }
 
   .rButton {
-    width: 100%;
+    padding: 1.5vh 3vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .rContainer {
+    padding: 5vh;
+  }
+
+  .rItem {
+    gap: 2.5vh;
+  }
+
+  .rButton {
+    padding: 2vh 4vw;
   }
 }

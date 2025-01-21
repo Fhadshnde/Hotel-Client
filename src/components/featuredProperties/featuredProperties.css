@@ -1,21 +1,21 @@
 .fp {
-  width: 100%;
+  width: 90vw;
   max-width: 1024px;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 2vh;
 }
 
 .fpItem {
   flex: 1;
-  gap: 10px;
+  gap: 1vh;
   display: flex;
   flex-direction: column;
 }
 
 .fpImg {
   width: 100%;
-  height: 250px;
+  height: 25vh;
   object-fit: cover;
 }
 
@@ -36,22 +36,64 @@
   background-color: #003580;
   color: white;
   border: none;
-  padding: 3px;
-  margin-right: 10px;
+  padding: 0.5vh;
+  margin-right: 1vw;
   font-weight: bold;
 }
 
 .fpRating > span {
-  font-size: 14px;
+  font-size: 1.4vw;
+}
+
+@media (max-width: 1024px) {
+  .fp {
+    gap: 3vh;
+  }
+
+  .fpItem {
+    gap: 2vh;
+  }
+
+  .fpImg {
+    height: 30vh;
+  }
+
+  .fpRating > span {
+    font-size: 1.6vw;
+  }
 }
 
 @media (max-width: 768px) {
   .fp {
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+  }
+
+  .fpItem {
+    width: 80vw;
+    gap: 3vh;
   }
 
   .fpImg {
-    height: auto;
+    height: 35vh;
+  }
+
+  .fpRating > span {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .fpItem {
+    width: 90vw;
+    gap: 4vh;
+  }
+
+  .fpImg {
+    height: 40vh;
+  }
+
+  .fpRating > span {
+    font-size: 2.5vw;
   }
 }

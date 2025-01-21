@@ -1,23 +1,40 @@
 .homeContainer {
-  margin-top: 50px;
+  margin-top: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3vh;
 }
 
 .homeTitle {
-  width: 1024px;
-  font-size: 20px;
+  width: 90vw;
+  max-width: 1024px;
+  font-size: 2vw;
+}
+
+@media (max-width: 1024px) {
+  .homeTitle {
+    font-size: 3vw;
+  }
 }
 
 @media (max-width: 768px) {
-  .homeContainer {
-    gap: 20px;
+  .homeTitle {
+    font-size: 4vw;
   }
 
+  .homeContainer {
+    gap: 5vh;
+  }
+}
+
+@media (max-width: 480px) {
   .homeTitle {
-    width: 100%;
-    font-size: 18px;
+    font-size: 5vw;
+  }
+
+  .homeContainer {
+    margin-top: 2vh;
+    gap: 4vh;
   }
 }

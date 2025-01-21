@@ -1,26 +1,26 @@
 .mail {
-  width: 100%;
-  margin-top: 50px;
+  width: 90vw;
+  margin-top: 5vh;
   background-color: #003580;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 50px;
+  gap: 2vh;
+  padding: 5vh;
 }
 
 .mailInputContainer > input {
-  width: 300px;
-  height: 30px;
-  padding: 10px;
+  width: 30vw;
+  height: 3vh;
+  padding: 1vh;
   border: none;
-  margin-right: 10px;
+  margin-right: 1vw;
   border-radius: 5px;
 }
 
 .mailInputContainer > button {
-  height: 50px;
+  height: 5vh;
   background-color: #0071c2;
   color: white;
   font-weight: 500;
@@ -29,18 +29,44 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .mail {
-    padding: 30px;
+    padding: 4vh;
   }
 
   .mailInputContainer > input {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
+    width: 35vw;
   }
 
   .mailInputContainer > button {
-    width: 100%;
+    height: 4.5vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .mail {
+    padding: 3vh;
+  }
+
+  .mailInputContainer > input {
+    width: 40vw;
+  }
+
+  .mailInputContainer > button {
+    height: 4vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .mail {
+    padding: 2vh;
+  }
+
+  .mailInputContainer > input {
+    width: 80vw;
+  }
+
+  .mailInputContainer > button {
+    height: 3.5vh;
   }
 }
